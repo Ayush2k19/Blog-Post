@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Post</title>
+  </head>
+  <body>
+  <div class="container">
+    <h1>Post</h1>
+
+     
+    <ul>
+      {% for post in object_list %}
+       <a href="{% url 'article-detail' post.pk %}"> {{post.title}}</a> | {{post.author}}
+
+      <div></div>
+      {{post.body|slice:":200"}}<hr>
+      {% endfor %}
+
+    </ul>
+</div>
+  </body>
+</html>
+
+
+{% endblock %}
